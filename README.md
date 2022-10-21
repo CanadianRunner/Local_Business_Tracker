@@ -28,9 +28,15 @@ _This is a project I created at Epicodus that tracks the number of cups of tea a
 
 ## For a visual representation of setup and a successfully built application, please consult the attached Gifs.
 
+## Setup
+
 ![Setup](Barrys_Setup.gif)
 
+## Deployed Application
+
 ![BuiltApp](Deployed_App.gif)
+
+## Component Diagram
 
 ![Diagram](Component_Diagram1.png)
 
