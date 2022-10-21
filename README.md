@@ -32,6 +32,8 @@ _This is a project I created at Epicodus that tracks the number of cups of tea a
 
 ![BuiltApp](Deployed_App.gif)
 
+![Diagram](Component_Diagram1.png)
+
 ## Project can be found at:
 https://github.com/CanadianRunner/Local_Business_Tracker.git
 
