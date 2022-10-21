@@ -10,7 +10,7 @@ function TeaList(props) {
       <tea
         onClick = {props.onteaSelection}
         name={tea.name}
-        brand={tea.blend}
+        blend={tea.blend}
         price={tea.price}
         cups={tea.cups}
         id={tea.id}
