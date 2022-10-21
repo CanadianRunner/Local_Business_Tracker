@@ -33,7 +33,7 @@ _This is a project I created at Epicodus that tracks the number of cups of tea a
 ![BuiltApp](Deployed_App.gif)
 
 ## Project can be found at:
-https://github.com/CanadianRunner/SillystringzsFactory.Solution.git
+https://github.com/CanadianRunner/Local_Business_Tracker.git
 
 ## Known Bugs
 
@@ -42,9 +42,7 @@ https://github.com/CanadianRunner/SillystringzsFactory.Solution.git
 
 ## License
 
-If you have any questions or concerns feel free to contact me at code@sean-keane.com\
-
-Custom button CSS was created by Steven Lei https://getcssscan.com/css-buttons-examples 
+If you have any questions or concerns feel free to contact me at code@sean-keane.com
 
 *This is licensed under the MIT license*
 
