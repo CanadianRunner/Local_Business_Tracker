@@ -10,7 +10,6 @@ function TeaDetail(props) {
         <h1>Tea Details:</h1>
         <hr />
         <h3>Name: {tea.name}</h3>
-        <h3>Brand: {tea.brand}</h3>
         <hr />
         <p>Price: ${tea.price}</p>
         <p>Cups in stock: {cupsAvailable}</p>
