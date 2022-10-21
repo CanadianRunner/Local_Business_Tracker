@@ -12,7 +12,15 @@ background-color: #61dafb;
 }
 
 .header {
+display: flex;
 background-color: #61dafb;
+
+}
+
+.header-images {
+  display: flex;
+  
+  /* padding-left: 200px; */
 }
 
 @media (prefers-reduced-motion: no-preference) {
