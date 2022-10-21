@@ -1,7 +1,8 @@
 import React from 'react';
-import './App.css';
-import TeaControl from './'
+import '../App.css';
+import TeaControl from './TeaControl'
 import Header from './Header';
+import Footer from './Footer';
 
 
 function App() {
