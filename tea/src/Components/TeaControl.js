@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TeaList from './TeaList';
 import NewTeaForm from './NewTeaForm';
 import TeaDetail from './TeaDetail';
+import EditTeaForm from './EditTeaForm';
 
 export class TeaControl extends Component {
 
@@ -10,7 +11,8 @@ export class TeaControl extends Component {
     this.state = {
       formIsVisible: false,
       teaList: [],
-      selectedTea: null
+      selectedTea: null,
+      isEditingFormVisible: false
     };
   }
 
@@ -25,6 +27,21 @@ export class TeaControl extends Component {
         formIsVisible: !prevState.formIsVisible
       }));
     }
+  }
+
+  handleEditClick = () => {
+    this.setState({isEditingFormVisible: true})
+  }
+  
+  handleEditTea = (editedTea) => {
+    const editedTeaList = this.state.teaList
+    .filter(tea => tea.id !== this.state.selectedTea.id)
+    .concat(editedTea);
+    this.setState({
+      teaList: editedTeaList,
+      isEditingFormVisible: false,
+      selectedTea: null
+    });
   }
 
   addTeaToList = (newTea) => {
@@ -76,13 +93,16 @@ export class TeaControl extends Component {
   render() {
     let currentVisibleElement = null;
     let buttonText = null;
-
-    if (this.state.selectedTea) {
+    if (this.state.isEditingFormVisible) {
+      currentVisibleElement = <EditTeaForm tea={this.state.selectedTea} onEditTea={this.handleEditTea} />
+      buttonText='Return to tea list';
+    } else if (this.state.selectedTea) {
       currentVisibleElement = <TeaDetail
         tea={this.state.selectedTea}
         onClickIncrease={this.increaseTeaCups}
         onClickDecrease={this.decreaseTeaCups}
-        onClickDelete={this.deleteTea} />
+        onClickDelete={this.deleteTea}
+        onClickEdit={this.handleEditClick}/>
       buttonText='Return to tea list'
     } else if (this.state.formIsVisible === true) {
       currentVisibleElement = <NewTeaForm onNewTeaCreation={this.addTeaToList} />

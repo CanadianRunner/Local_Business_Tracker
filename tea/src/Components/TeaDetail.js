@@ -15,7 +15,7 @@ function TeaDetail(props) {
         <hr />
         <p>Price: ${tea.price}</p>
         <p>Cups in stock: {cupsAvailable}</p>
-        <button onClick={props.onClickingEdit}>Update tea</button>
+        <button onClick={props.onClickEdit}>Update tea</button>
         <button onClick={() => onClickDelete(tea.id)}>Delete tea</button>
         <button onClick={() => onClickIncrease(tea.id)}>Restock</button>
         <button onClick={() => onClickDecrease(tea.id)} disabled={cupsAvailable === "Out of stock"}>Buy</button>
