@@ -44,6 +44,7 @@ export class TeaControl extends Component {
     });
   }
 
+  
   addTeaToList = (newTea) => {
     const newTeaList = this.state.teaList.concat(newTea);
     this.setState({
@@ -88,6 +89,11 @@ export class TeaControl extends Component {
         teaList: changedTeaArray
       });
     }
+  }
+
+  deleteTea = (id) => {
+    const newTeaList = this.state.teaList.filter(tea => tea.id !== id);
+    this.setState({teaList: newTeaList, selectedTea: null})
   }
   // js logic
   render() {
