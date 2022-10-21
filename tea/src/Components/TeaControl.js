@@ -40,11 +40,37 @@ export class TeaControl extends Component {
   }
 
   increaseTeaCups = (id) => {
-    
+    if(this.state.teaList > 1) {
+      const selectedTea = this.state.teaList.filter(tea => tea.id === id)[0]
+      selectedTea.cups++;
+      const newTeaList = this.state.teaList.filter(tea => tea.id !==id).concat(selectedTea);
+      this.setState({teaList:newTeaList});
+    } else {
+      const selectedTea = this.state.teaList.filter(tea => tea.id === id)[0]
+      selectedTea.cups++;
+      const newTeaListArray = [];
+      const changedTeaArray = newTeaListArray.concat(selectedTea);
+      this.setState({
+        teaList: changedTeaArray
+      });
+    }
   }
 
   decreaseTeaCups = (id) => {
-    
+    if(this.state.teaList > 1) {
+      const selectedTea = this.state.teaList.filter(tea => tea.id === id)[0]
+      selectedTea.cups--;
+      const newTeaList = this.state.teaList.filter(tea => tea.id !==id).concat(selectedTea);
+      this.setState({teaList:newTeaList});
+    } else {
+      const selectedTea = this.state.teaList.filter(tea => tea.id === id)[0]
+      selectedTea.cups--;
+      const newTeaListArray = [];
+      const changedTeaArray = newTeaListArray.concat(selectedTea);
+      this.setState({
+        teaList: changedTeaArray
+      });
+    }
   }
   // js logic
   render() {
@@ -57,12 +83,14 @@ export class TeaControl extends Component {
         onClickIncrease={this.increaseTeaCups}
         onClickDecrease={this.decreaseTeaCups}
         onClickDelete={this.deleteTea} />
+      buttonText='Return to tea list'
     } else if (this.state.formIsVisible === true) {
       currentVisibleElement = <NewTeaForm onNewTeaCreation={this.addTeaToList} />
       buttonText= 'Return to tea list';
     } else {
       currentVisibleElement = <TeaList 
-        teaList={this.state.teaList} />
+        teaList={this.state.teaList} 
+        onTeaClick={this.onSelectTea}/>
         buttonText= 'Add new Tea!';
     }
     return (

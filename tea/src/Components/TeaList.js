@@ -8,7 +8,7 @@ function TeaList(props) {
     <hr />
     {props.teaList.map((tea) => 
       <Tea
-        onClick = {props.onTeaClick}
+        onTeaClick = {props.onTeaClick}
         name={tea.name}
         blend={tea.blend}
         price={tea.price}
