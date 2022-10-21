@@ -6,7 +6,7 @@ import ReusableForm from './ReusableForm'
 function NewTeaForm(props) {
   const handleNewTeaFormSubmission = (event) => {
     event.preventDefault();
-    props.onNewTeaCreation({name: event.target.name.value, blend: event.target.blend.value, price: event.target.value, cups: event.target.value, id: v4()});
+    props.onNewTeaCreation({name: event.target.name.value, blend: event.target.blend.value, price: parseInt(event.target.price.value), cups: parseInt(event.target.cups.value), id: v4()});
   }
 
   return (
