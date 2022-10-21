@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TeaList from './TeaList';
 import NewTeaForm from './NewTeaForm';
+import TeaDetail from './TeaDetail';
 
 export class TeaControl extends Component {
 
@@ -8,14 +9,22 @@ export class TeaControl extends Component {
     super(props);
     this.state = {
       formIsVisible: false,
-      teaList: []
+      teaList: [],
+      selectedTea: null
     };
   }
 
   handleChangeViewClick = () => {
-    return this.setState(prevState => ({
-      formIsVisible: !prevState.formIsVisible
-    }))
+    if (this.state.selectedTea) {
+      this.setState({
+        formIsVisible: false,
+        selectedTea: null
+      });
+    } else {
+      this.setState(prevState => ({
+        formIsVisible: !prevState.formIsVisible
+      }));
+    }
   }
 
   addTeaToList = (newTea) => {
@@ -25,12 +34,30 @@ export class TeaControl extends Component {
     });
   }
 
+  onSelectTea = (id) => {
+    const newSelectedTea = this.state.teaList.filter(tea => tea.id === id)[0];
+    this.setState({selectedTea: newSelectedTea});
+  }
+
+  increaseTeaCups = (id) => {
+    
+  }
+
+  decreaseTeaCups = (id) => {
+    
+  }
   // js logic
   render() {
     let currentVisibleElement = null;
     let buttonText = null;
 
-    if (this.state.formIsVisible === true) {
+    if (this.state.selectedTea) {
+      currentVisibleElement = <TeaDetail
+        tea={this.state.selectedTea}
+        onClickIncrease={this.increaseTeaCups}
+        onClickDecrease={this.decreaseTeaCups}
+        onClickDelete={this.deleteTea} />
+    } else if (this.state.formIsVisible === true) {
       currentVisibleElement = <NewTeaForm onNewTeaCreation={this.addTeaToList} />
       buttonText= 'Return to tea list';
     } else {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 function TeaDetail(props) {
   const { tea, onClickDelete, onClickIncrease, onClickDecrease } = props;
-  const cupsAvailable = props.cups === 0 ? "Out of stock" : props.cups;
+  const cupsAvailable = tea.cups === 0 ? "Out of stock" : tea.cups;
   //disable buy button
   return (
     <React.Fragment>
@@ -18,11 +18,16 @@ function TeaDetail(props) {
         <button onClick={props.onClickingEdit}>Update tea</button>
         <button onClick={() => onClickDelete(tea.id)}>Delete tea</button>
         <button onClick={() => onClickIncrease(tea.id)}>Restock</button>
+        <button onClick={() => onClickDecrease(tea.id)} disabled={cupsAvailable === "Out of stock"}>Buy</button>
       </div>
     </React.Fragment>
   );
 }
 
-TeaDetail.propTypes = {}
-
+TeaDetail.propTypes = {
+  tea: PropTypes.object,
+  onClickDelete: PropTypes.func,
+  onClickIncrease: PropTypes.func,
+  onClickDecrease: PropTypes.func
+}
 export default TeaDetail
