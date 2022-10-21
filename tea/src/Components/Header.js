@@ -7,8 +7,8 @@ import Barrys_Decaf from './img/Barrys_Decaf.webp'
 function Header() {
   return (
     <div className='header'>
-      <h2>Barry's Irish Tea</h2>
-      <h4>Est 1901</h4>
+      <h1>Barry's Irish Tea</h1>
+      <h5>Est 1901</h5>
       <div className='header-images'>
       <img style={{ width: "18%", height: "100%" }} src={Barrys_Gold} alt="Barrys-Gold" />
       <img style={{ width: "18%", height: "100%" }} src={Barrys_Original} alt="Barrys-Original" />

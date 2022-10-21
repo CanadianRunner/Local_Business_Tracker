@@ -14,13 +14,22 @@ background-color: #61dafb;
 .header {
 display: flex;
 background-color: #61dafb;
+color: white;
+}
 
+.header h1  {
+  padding: 20px;
+}
+
+.header h5 {
+  padding: 20px;
 }
 
 .header-images {
   display: flex;
-  
-  /* padding-left: 200px; */
+  margin: auto;
+  width: 50%;
+  padding: 30px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
