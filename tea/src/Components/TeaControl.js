@@ -95,7 +95,7 @@ export class TeaControl extends Component {
     const newTeaList = this.state.teaList.filter(tea => tea.id !== id);
     this.setState({teaList: newTeaList, selectedTea: null})
   }
-  // js logic
+ 
   render() {
     let currentVisibleElement = null;
     let buttonText = null;
